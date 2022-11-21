@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#clicked {
+  background: green;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
