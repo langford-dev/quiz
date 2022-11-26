@@ -65,19 +65,25 @@ export default function Home() {
       <Head>
         <title>Quiz app</title>
       </Head>
-      <div className="h-screen bg-gradient-to-b from-gray-900 to-slate-800 flex flex-col text-white">
-        <h1 className="text-6xl font-bold text-center py-32">QUIZ APP</h1>
-        <main>
+      <div className="h-screen bg-[#fff] flex flex-col p-5 lg:p-0">
+        <header className="bg-[#fff] h-[70px]">
+          <div className="max-w-7xl m-auto h-full flex items-center justify-between">
+            <p className="text-3xl font-bold">QUIZZ</p>
+            <button className="bg-[#FFA310] p-2 px-10 font-medium rounded-md">CREATE A QUIZZ</button>
+          </div>
+        </header>
+        <main className="max-w-xl m-auto">
           {
             <div key={Date.now() * Math.random() * 1000}>
-              <p className="text-2xl max-w-5xl m-auto text-center">{currentQuestion.q}</p>
-              <div className="flex items-center justify-center">
+              <p className="text-2xl max-w-5xl m-auto mb-3 text-center">{currentQuestion.q}</p>
+              <div className="flex flex-col items-center justify-center">
                 {
                   currentQuestion.opts.map((opt, i) => {
                     return <button
-                      onClick={() => initSetClickOpt(opt)} id={clickedOpt === opt || storedClickedOpt === opt ? 'clicked' : ""}
+                      onClick={() => initSetClickOpt(opt)} id={clickedOpt === opt || storedClickedOpt === opt ? 'clicked' : "unclicked"}
                       disabled={storedClickedOpt}
-                      className="bg-[red] m-1 cursor-pointer w-max p-1 px-3 rounded-md" key={i}>{opt}</button>
+                      // id="unclicked"
+                      className="w-full m-2 p-3 rounded-md bg-[#F2F5F7]" key={i}>{opt}</button>
                   })
                 }
               </div>
@@ -88,9 +94,6 @@ export default function Home() {
             onNext={onNextClick}
             onPrev={onPrevClick}
           />
-          <div className="flex items-center justify-center">
-            {currentQuestionIndex + 1}/{questions.length}
-          </div>
         </main>
       </div>
     </>

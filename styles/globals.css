@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family:"Poppins",sans-serif;
+}
+
 #clicked {
-  background: green;
+  background: #DBF0FF;
+}
+
+#unclicked{
+  box-shadow:0 4px 0 #eceff0;
 }
 
 button:disabled {
   cursor: not-allowed;
   pointer-events: all !important;
+}
+
+.controls-footer_ {
+  border-width: 2.5px;
 }
